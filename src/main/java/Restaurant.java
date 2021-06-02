@@ -70,4 +70,15 @@ public class Restaurant {
         return name;
     }
 
+public int getOrderValue(String itemName){
+        int value = 0;
+
+        for(Item item: menu) {
+            if(item.getName().equals(itemName)){
+                value += item.getPrice();
+            }
+        }
+        return value;
+    }
+
 }
