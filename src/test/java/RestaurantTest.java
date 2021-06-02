@@ -84,6 +84,32 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    
+    @Test
+    public void when_selecting_items_from_menu_the_order_value_should_be_displayed(){
+//        restaurant.addToMenu("Sweet corn soup",119);
+//        restaurant.addToMenu("Vegetable lasagne", 269);
+        // value = 119 + 269 = 388;
+
+        List<Item> menu = new ArrayList<Item>();
+        menu = restaurant.getMenu();
+        String arr = "";
+
+        for(Item i: menu){
+            arr  = arr + i.getName()+",";
+        }
+
+        String[] arrOfStr = arr.split(",", 5);
+
+        int value = 0;
+        for (String a : arrOfStr){
+            value+= restaurant.getOrderValue(a);
+        }
+
+        assertEquals(388,value);
+
+
+    }
 
 }
 
